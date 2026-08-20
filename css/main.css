@@ -1560,17 +1560,19 @@ input::-moz-focus-inner {
 }
 
 @media screen and (max-width:600px) {
-  /* stack the header so the email stays visible and never
-     collides with the logo on narrow screens; align to the right */
+  /* stack the header and align it to the same left edge as the
+     hero content (the .intro-content row is 80vw centered, so its
+     left edge sits at 10vw) */
   .s-header {
     height: auto;
-    padding: 0 2.4rem;
+    padding-left: 10vw;
+    padding-right: 10vw;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
   }
 
   .header-logo,
@@ -1584,25 +1586,21 @@ input::-moz-focus-inner {
   }
 
   .header-logo img {
-    width: 110px;
-    height: 33px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: left center;
-    object-position: left center;
+    width: 150px;
+    height: 25px;
   }
 
   .header-email {
     display: block;
-    margin-top: 2rem;
+    margin-top: 1.2rem;
   }
 
 }
 
 @media screen and (max-width:500px) {
   .header-logo img {
-    width: 100px;
-    height: 30px;
+    width: 135px;
+    height: 22px;
   }
 
 }
