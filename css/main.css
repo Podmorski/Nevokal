@@ -1565,6 +1565,7 @@ input::-moz-focus-inner {
      left edge sits at 10vw) */
   .s-header {
     height: auto;
+    top: 4rem;
     padding-left: 10vw;
     padding-right: 10vw;
     display: -webkit-flex;
@@ -1592,7 +1593,8 @@ input::-moz-focus-inner {
 
   .header-email {
     display: block;
-    margin-top: 1.2rem;
+    margin-top: .8rem;
+    line-height: 1.4;
   }
 
 }
