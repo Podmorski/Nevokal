@@ -1561,15 +1561,16 @@ input::-moz-focus-inner {
 
 @media screen and (max-width:600px) {
   /* stack the header so the email stays visible and never
-     collides with the logo on narrow screens */
+     collides with the logo on narrow screens; align to the right */
   .s-header {
     height: auto;
+    padding: 0 2.4rem;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
   }
 
   .header-logo,
@@ -1583,20 +1584,24 @@ input::-moz-focus-inner {
   }
 
   .header-logo img {
-    width: 200px;
+    width: 110px;
     height: 33px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: left center;
+    object-position: left center;
   }
 
   .header-email {
     display: block;
-    margin-top: .8rem;
+    margin-top: 2rem;
   }
 
 }
 
 @media screen and (max-width:500px) {
   .header-logo img {
-    width: 180px;
+    width: 100px;
     height: 30px;
   }
 
@@ -2462,7 +2467,7 @@ html.no-csstransitions .intro-content__bottom {
 
   .intro-content {
     max-width: 80vw;
-    padding-top: 9rem;
+    padding-top: 15rem;
     padding-bottom: 6rem;
   }
 
