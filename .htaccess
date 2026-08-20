@@ -1,13 +1,27 @@
-# Serve the static coming-soon page instead of WordPress
-DirectoryIndex index.html index.php
+# === Nevokal coming-soon override (non-destructive) ===
+# Serves everything from the /coming-soon/ subfolder as top priority.
+# WordPress files are left untouched; nothing is deleted.
 
-# Disable any leftover WordPress rewriting
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # Allow direct access to existing files/folders (css, js, images)
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
-    # Everything else goes to the coming-soon page
-    RewriteRule ^ index.html [L]
+
+    # If the coming-soon folder is requested directly, let it through
+    RewriteRule ^coming-soon/ - [L]
+
+    # Serve the coming-soon page at the site root
+    RewriteRule ^$ coming-soon/index.html [L]
+
+    # Route requests that match a real file/folder inside coming-soon/
+    # (css, js, images, favicons) so assets always resolve correctly
+    RewriteCond %{DOCUMENT_ROOT}/coming-soon/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/coming-soon/$1 -d
+    RewriteRule ^(.+)$ coming-soon/$1 [L]
+
+    # Any other URL (old WordPress pages indexed by Google, unknown paths)
+    # -> permanent redirect to the homepage. This keeps every visitor on a
+    # properly-styled page and tells search engines to drop the old links.
+    RewriteRule ^ / [R=301,L]
 </IfModule>
+
+# Make index.html win over index.php at the root
+DirectoryIndex coming-soon/index.html index.html index.php
