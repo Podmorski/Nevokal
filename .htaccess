@@ -1,0 +1,13 @@
+# Serve the static coming-soon page instead of WordPress
+DirectoryIndex index.html index.php
+
+# Disable any leftover WordPress rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Allow direct access to existing files/folders (css, js, images)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    # Everything else goes to the coming-soon page
+    RewriteRule ^ index.html [L]
+</IfModule>
