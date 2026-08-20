@@ -1749,7 +1749,7 @@ input::-moz-focus-inner {
  * ------------------------------------------------------------------- */
 .grid-overlay {
   z-index: 1;
-  display: block;
+  display: none;
   width: 89%;
   height: 100%;
   max-width: 1200px;
