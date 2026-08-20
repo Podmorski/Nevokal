@@ -173,6 +173,33 @@
     };
 
 
+   /* intro social smooth scroll (eased slide down to info)
+    * ------------------------------------------------------ */
+    const ssIntroScroll = function() {
+
+        // easing that mirrors the hero text animation (cubic-bezier(0.23, 1, 0.32, 1) == easeOutQuint)
+        if (typeof $.easing.introEase !== 'function') {
+            $.easing.introEase = function (x) {
+                return 1 - Math.pow(1 - x, 5);
+            };
+        }
+
+        $('.intro-social a[href^="#"]').on('click', function (e) {
+            const target = this.hash;
+            const $target = $(target);
+            if (!$target.length) return;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 1400, 'introEase');
+        });
+
+    };
+
+
    /* back to top
     * ------------------------------------------------------ */
     const ssBackToTop = function() {
@@ -205,7 +232,7 @@
         // Mailchimp translation
         //
         //  Defaults:
-        //	 'submit': 'Submitting...',
+        //       'submit': 'Submitting...',
         //  0: 'We have sent you a confirmation email',
         //  1: 'Please enter a value',
         //  2: 'An email address must contain a single @',
@@ -237,6 +264,7 @@
         ssTabs();
         ssAlertBoxes();
         ssSmoothScroll();
+        ssIntroScroll();
         ssBackToTop();
         ssAjaxChimp();
 
