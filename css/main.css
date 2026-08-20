@@ -1553,16 +1553,22 @@ input::-moz-focus-inner {
   }
 
   .header-logo img {
-    width: 250px;
-    height: 40px;
+    width: 220px;
+    height: 36px;
   }
 
 }
 
 @media screen and (max-width:600px) {
   .header-logo img {
-    width: 200px;
-    height: 33px;
+    width: 180px;
+    height: 30px;
+  }
+
+  /* email is duplicated in the contact section + footer,
+     so hide it here to avoid colliding with the logo */
+  .header-email {
+    display: none;
   }
 
 }
@@ -1572,20 +1578,9 @@ input::-moz-focus-inner {
     right: 3.2rem;
   }
 
-  .header-email {
-    left: 3.2rem;
-  }
-
-}
-
-@media screen and (max-width:400px) {
-  .header-logo {
-    right: auto;
-    left: 4.2rem;
-  }
-
-  .header-email {
-    display: none;
+  .header-logo img {
+    width: 160px;
+    height: 26px;
   }
 
 }
