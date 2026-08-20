@@ -2543,6 +2543,19 @@ html.no-csstransitions .intro-content__bottom {
   position: relative;
 }
 
+.s-info .lead.h-add-bottom {
+  margin-bottom: 6rem !important;
+}
+
+.s-info .row .column h4 {
+  margin-top: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.s-info .row .column p {
+  margin-bottom: 2.4rem;
+}
+
 .s-info .vert-line {
   width: 1.5rem;
   height: 20rem;
