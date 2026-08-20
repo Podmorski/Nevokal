@@ -1843,7 +1843,7 @@ input::-moz-focus-inner {
   color: #ffffff;
   letter-spacing: normal;
   margin-top: 0;
-  margin-bottom: .8rem;
+  margin-bottom: 3.2rem;
 }
 
 
@@ -2517,7 +2517,7 @@ html.no-csstransitions .intro-content__bottom {
  *
  * ------------------------------------------------------------------- */
 .s-info {
-  padding-top: 16rem;
+  padding-top: 4rem;
   padding-bottom: 8rem;
   background-color: #ffffff;
   position: relative;
